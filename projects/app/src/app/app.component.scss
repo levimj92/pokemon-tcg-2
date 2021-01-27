@@ -1,0 +1,42 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  mat-toolbar {
+    flex: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+
+    > * {
+      flex: 0;
+      margin: 0 1rem;
+    }
+
+    img {
+      height: 100%;
+      width: 4.5rem;
+    }
+
+    a {
+      text-decoration: none;
+      color: #fff;
+    }
+
+    .routerLinkActive {
+      color: #ffff00;
+    }
+
+    div:last-child {
+      margin-left: auto;
+    }
+  }
+  .outlet {
+    flex: 1;
+  }
+}

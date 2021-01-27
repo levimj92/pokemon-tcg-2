@@ -1,0 +1,43 @@
+@import '~@angular/material/theming';
+
+:host {
+  min-height: 100%;
+  margin: 3rem;
+  overflow: hidden;
+
+  .search-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-bottom: 3rem;
+
+    mat-form-field {
+      width: 50%;
+    }
+  }
+
+  .selected-cards-list {
+    position: sticky;
+    top: 52px;
+    background-color: #eee;
+    overflow: auto;
+    max-height: 55vh;
+    min-height: 5vh;
+    z-index: 1;
+  }
+
+  .cards-list {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    padding: 0 3rem;
+
+    > * {
+      flex: 1;
+      margin: 10px;
+    }
+  }
+}

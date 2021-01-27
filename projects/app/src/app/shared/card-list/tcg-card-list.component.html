@@ -1,0 +1,29 @@
+<div class="search-container">
+  <mat-form-field [formGroup]="form" [appearance]="'outline'">
+    <mat-label>Pokémon Name</mat-label>
+    <input matInput type="text" [formControlName]="'name'">
+    <mat-hint>Search by pokémon's name. Double quotes ("") means an exact search otherwise a partial match is returned.
+      Pipes (|) means an OR condition. Commas (,) AND condition.
+    </mat-hint>
+  </mat-form-field>
+</div>
+<div class="selected-cards-list" *ngIf="selectable">
+  <button (click)="expandSelectedCardsList()" mat-button><mat-icon><mat-icon >{{selectedCardsListExpanded ? 'expand_less' : 'expand_more'}}</mat-icon></mat-icon> Selected {{selectedCards.length}} Cards</button>
+  <div *ngIf="selectedCardsListExpanded" class="cards-list">
+      <ng-container  *ngFor="let card of selectedCards; trackBy: cardTrackByFn">
+        <app-tcg-card [isSelected]="isSelected(card)" [selectable]="selectable" (selected)="selectCard(card)" [card]="card"></app-tcg-card>
+      </ng-container>
+  </div>
+</div>
+<mat-divider></mat-divider>
+<mat-paginator [length]="totalCardsCount"
+               [pageIndex]="form.controls.page.value - 1"
+               [pageSize]="form.controls.pageSize.value"
+               [pageSizeOptions]="[50, 100, 250, 1000]"
+               (page)="paginationListener($event)">
+</mat-paginator>
+<div class="cards-list">
+  <ng-container *ngFor="let card of (cardsList$ | async); trackBy: cardTrackByFn">
+    <app-tcg-card [isSelected]="isSelected(card)" [selectable]="selectable" (selected)="selectCard(card)" [card]="card"></app-tcg-card>
+  </ng-container>
+</div>

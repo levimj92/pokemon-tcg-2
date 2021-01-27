@@ -1,0 +1,19 @@
+<div>
+  <button class="save-button" [color]="'accent'" (click)="saveDeck()" mat-raised-button>Save Deck</button>
+</div>
+<div class="wrapper">
+  <div class="deck-collection">
+    <ng-container *ngFor="let card of deck; trackBy: cardTrackByFn">
+      <app-tcg-card [card]="card"></app-tcg-card>
+    </ng-container>
+  </div>
+  <div class="add-cards-handle">
+    <button [color]="'primary'" mat-stroked-button (click)="toggleAddCardPanel()">
+      <span><mat-icon>arrow_left</mat-icon>Add Cards</span>
+    </button>
+    <mat-divider [vertical]="true"></mat-divider>
+  </div>
+  <div class="add-cards collapsed" [ngClass]="{'expanded': isAddCardpanelOpen}">
+    <app-tcg-card-list [selectedCards]="deck" (cards)="handleCardSelection($event)" [selectable]="true"></app-tcg-card-list>
+  </div>
+</div>

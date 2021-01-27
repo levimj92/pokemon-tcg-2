@@ -1,0 +1,51 @@
+@import '~@angular/material/theming';
+
+:host {
+  .wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+
+  .action-buttons {
+    position: absolute;
+  }
+
+  .view {
+    top: 0;
+    transform: translate(5.5rem, 1rem);
+  }
+
+  .card {
+    border-radius: 5%;
+  }
+
+  .selectable {
+    cursor: pointer;
+    @include mat-elevation-transition;
+    transition: border 100ms ease;
+
+    &:hover {
+      @include mat-elevation(5);
+    }
+  }
+
+  .selected {
+    border: 5px solid mat-color($mat-red, 400) !important;
+    border-radius: 15px;
+  }
+
+  .view-card-wrapper {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    img {
+      width: auto;
+      height: 100%;
+    }
+  }
+}

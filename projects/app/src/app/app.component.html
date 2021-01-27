@@ -1,0 +1,19 @@
+<mat-toolbar [color]="'primary'">
+  <a [routerLink]="['home']">
+    <img src="../assets/poke_logo.svg" alt="pokemon tcg logo">
+  </a>
+  <div>
+    <button mat-button>
+      <a [routerLink]="['cards']" [routerLinkActive]="'routerLinkActive'">Cards</a>
+    </button>
+    <button mat-button>
+      <a [routerLink]="['decks']" [routerLinkActive]="'routerLinkActive'">Decks</a>
+    </button>
+  </div>
+  <div>
+    <span>Profile Area</span>
+  </div>
+</mat-toolbar>
+<div class="outlet">
+  <router-outlet></router-outlet>
+</div>
